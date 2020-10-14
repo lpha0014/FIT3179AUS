@@ -1,0 +1,57 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "title": "Mean car prices of each state",
+  "width": 500,
+  "height": 300,
+  "background": "#deebf7",
+  "data": {
+    "url": "https://raw.githubusercontent.com/lpha0014/FIT3179USCars/main/ne_50m_admin_1_states_provinces2.topojson",
+    "format": {"type": "topojson", "feature": "ne_50m_admin_1_states_provinces"}
+  },
+  "transform": [
+    {
+      "lookup": "properties.name",
+      "from": {
+        "data": {"url": "https://lpha0014.github.io/FIT3179USCars/USA_cars_datasets1.csv"},
+        "key": "State",
+        "fields": ["avg_price"]
+      }
+    }
+  ],
+  "projection": {"type": "albersUsa"},
+  "encoding": {"color": 
+  {"field": "avg_price", 
+  "type": "quantitative"
+  }},
+  "layer": [
+  {
+    "mark": {
+      "type": "geoshape",
+      "stroke": "#grey",
+      "strokeWidth": 1.0
+    },
+    "encoding": {
+  "color": {
+    "field": "avg_price",
+    "type": "quantitative",
+    "scale": {"scheme": "Greens",
+    "type": "threshold",
+    "domain": [14712,17014,21198]},
+    "title": "Avg Price($)"
+  },    
+  "tooltip": [
+      {
+      "field": "properties.name",
+      "type": "nominal", 
+      "title": "Name"},
+      {
+        "field": "avg_price",
+        "type": "quantitative",
+        "format": ".2f",
+        "title": "Average Price($)"
+    }
+    ]
+  }
+}
+]
+}
