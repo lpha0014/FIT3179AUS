@@ -1,8 +1,8 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
   "title": "Mean car prices of each state",
-  "width": 600,
-  "height": 400,
+  "width": 810,
+  "height": 500,
   "background": "#deebf7",
   "data": {
     "url": "https://raw.githubusercontent.com/lpha0014/FIT3179USCars/main/ne_50m_admin_1_states_provinces2.topojson",
@@ -98,7 +98,7 @@
           "type": "text",
           "dy": -10,
           "dx": -7,
-          "size": 8
+          "size": 9.5
         },
         "encoding": {
           "text": {"field": "state", "type": "nominal"}
