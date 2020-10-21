@@ -1,0 +1,114 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "title": "Mean car prices of each state",
+  "width": 600,
+  "height": 400,
+  "background": "#deebf7",
+  "data": {
+    "url": "https://raw.githubusercontent.com/lpha0014/FIT3179USCars/main/ne_50m_admin_1_states_provinces2.topojson",
+    "format": {"type": "topojson", "feature": "ne_50m_admin_1_states_provinces"}
+  },
+  "transform": [
+    {
+      "lookup": "properties.name",
+      "from": {
+        "data": {"url": "https://lpha0014.github.io/FIT3179USCars/USA_cars_datasets1.csv"},
+        "key": "State",
+        "fields": ["avg_price"]
+      }
+    }
+  ],
+  "projection": {"type": "albersUsa"},
+  "layer": [
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/lpha0014/FIT3179USCars/main/ne_50m_admin_1_states_provinces2.topojson",
+        "format": {
+          "type": "topojson",
+          "feature": "ne_50m_admin_1_states_provinces"
+        }
+      },
+  "transform": [
+    {
+      "lookup": "properties.name",
+      "from": {
+        "data": {"url": "https://lpha0014.github.io/FIT3179USCars/USA_cars_datasets1.csv"},
+        "key": "State",
+        "fields": ["avg_price"]
+      }
+    }
+  ],
+      "mark": {
+        "type": "geoshape",
+        "stroke": "grey"
+      },
+    "encoding": {
+  "color": {
+    "field": "avg_price",
+    "type": "quantitative",
+    "scale": {"scheme": "Greens",
+    "type": "threshold",
+    "domain": [14712,17014,21198]},
+    "title": "Average Price($)",
+    "legend": {"format": ".2s"}
+  },    
+  "tooltip": [
+      {
+      "field": "properties.name",
+      "type": "nominal", 
+      "title": "Name"},
+      {
+        "field": "avg_price",
+        "type": "quantitative",
+        "format": ".2f",
+        "title": "Average Price($)"
+    }
+    ]
+    }
+  },
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/lpha0014/FIT3179USCars/main/us-state-capitals.json"
+      },
+      "transform": [{"filter": {
+        "not": {
+          "field": "state",
+        "oneOf": ["North Dakota","South Dakota", "Maine", "Alaska", "Hawaii", "Rhode Island"]
+              }
+            }       
+          }
+        ],
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        }
+      },
+      "layer": [{
+        "mark": {
+          "type": "circle",
+          "color": "orange"
+        }
+      }, {
+        "mark": {
+          "type": "text",
+          "dy": -10,
+          "dx": -7,
+          "size": 8
+        },
+        "encoding": {
+          "text": {"field": "state", "type": "nominal"}
+        }
+      }]
+    }
+  ],
+  "config": {
+  "view": {
+     "stroke": "transparent"
+  }
+}
+}
