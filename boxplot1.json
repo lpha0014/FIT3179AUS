@@ -1,0 +1,49 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "title": "Car Price Distribution",
+  "width":810,
+  "height": 250,
+  "data": {"url": "https://lpha0014.github.io/FIT3179USCars/USA_cars_datasets.csv"},
+  "transform": [{"filter": {"not":{"field": "brand","oneOf":["jaguar","harley-davidson","peterbilt","ram","toyota","maserati"]}}}],
+  "layer": [
+    {"mark": "boxplot",
+    "encoding": {
+      "x": {"field": "brand", "type": "nominal", "title": "Brands"},
+      "y": {"field": "price", "type": "quantitative", "title": "Prices($)","axis": {"grid": false}},
+      "color": {"field": "brand", "type": "nominal","title": "","legend":null, "scale": {"scheme": "tableau20"}},
+      "tooltip":[{"field":"price","type":"quantitative", "format":"$"}]
+    }},
+    {
+      "mark": {
+      "type":"text",
+      "dx": 30,
+      "dy": -80,
+    "font": "Franklin Gothic Book",
+      "fontSize": 11,
+      "color": "darkcyan"
+    },
+      "encoding": {
+          "text": {"value": "Ford has the most outliers out of all brands"}
+      }
+    },
+    {
+      "mark": {
+      "type":"text",
+      "dx": 300,
+      "dy": -40,
+    "font": "Franklin Gothic Book",
+      "fontSize": 11,
+      "color": "palevioletred"
+    },
+      "encoding": {
+          "text": {"value": "Lexus has the biggest price interquartile range"}
+      }
+    }
+  ]
+  ,
+  "config": {
+    "font": "Franklin Gothic Book",
+    "view": {"stroke": "transparent"},
+    "axis": {"domainWidth": 1}
+  }
+}
