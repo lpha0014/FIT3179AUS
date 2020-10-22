@@ -1,0 +1,89 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+    "width":300,
+  "height": 300,
+  "title": "Miles Travelled compared to Price",
+  "data": {"url": "https://lpha0014.github.io/FIT3179USCars/USA_cars_datasets.csv"},
+  "params": [
+    {
+      "name": "Select_Years",
+      "bind": {"input": "range", "min": 2000, "max": 2020, "step": 1, "name": "Select Year"}
+    }
+  ],
+    "selection": {
+    "grid": {
+      "type": "interval", "bind": "scales"
+    }
+  },
+  "transform": [{"filter": "datum.year==Select_Years"}],
+  "encoding": {
+    "y": {"field": "price", "type": "quantitative", "scale": {"domain":[0,90000]}, "title": "Price"},
+    "x": {"field": "mileage", "type": "quantitative", "scale": {"domain":[0,1200000]}, "title": "Miles Travelled"}
+    },
+    "layer": [
+      {
+  "mark": "circle",
+    "selection": {
+    "content_highlight": {"type": "multi", "fields": ["title_status"], "bind": "legend"}
+  },
+  "encoding": {
+    "color": {
+      "field": "title_status", "type": "nominal", "title":"Title Status",
+      "scale": {"range": ["#9ecae1", "#fdbb84"]}, "legend": {"labelFontSize": 10,"orient": "top-right","fillColor": "white", "font": "Franklin Gothic Book"}}
+    ,
+  "opacity": {
+    "condition": 
+  {
+    "selection": "content_highlight", 
+    "value": 0.9
+    },
+  "value": 0.2
+  },
+    "tooltip": 
+    [{"field": "year", "type": "nominal", "title": "Year"},{"field": "price", "type": "quantitative", "title": "Price", "format": "$"},{"field": "mileage", "type": "nominal", "title": "Miles"},{"field": "title_status", "type": "nominal", "title": "Status"}]
+  }
+    },
+    {
+      "mark": {
+      "type":"text",
+      "dx": 80,
+      "dy": 10,
+      "font": "Franklin Gothic Book",
+      "fontSize": 10
+    },
+    "encoding": {
+      "text": {"value": "This car is located in Florida for $84900"},
+      "color": {"value": "darkblue"},
+      "opacity": {
+        "condition":{
+          "test": "datum['price'] > 80000",
+          "value": 1
+      },
+      "value": 0
+    }
+    }
+    },
+    {
+      "mark": {
+      "type":"text",
+      "font": "Franklin Gothic Book",
+      "dy": -15,
+      "dx": -50,
+      "fontSize": 10
+    },
+    "encoding": {
+      "text": {"value": "Longest distance travelled is 1017936 miles"},
+      "color": {"value": "orange"},
+      "opacity": {
+        "condition":{
+          "test": "datum['mileage'] > 1000000",
+          "value": 1
+      },
+      "value": 0
+    }
+    }
+    }
+  ],
+"config": {"font": "Franklin Gothic Book"}
+
+}
