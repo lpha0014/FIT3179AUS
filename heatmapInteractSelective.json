@@ -1,0 +1,54 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "title": {"text":"Car sales over time","align": "right"},
+  "width": 350,
+  "height": 400,
+  "data": {"url": "https://lpha0014.github.io/FIT3179USCars/USA_cars_datasets.csv"},
+  "params": [
+    {
+      "name": "Select_Colours",
+      "bind": {"input": "select", "options": [null, "black", "white", "red","blue","gray"], "labels": ["Show all"], "name": "Top Colours Selection"}
+    }
+  ],
+  "transform": [
+    {"filter": {"field": "year", "gte": 2000}},
+    {"filter": "Select_Colours == null || datum.color==Select_Colours"}],
+  "encoding": {
+    "x": {"field": "year", "type": "ordinal", "title": "Years"},
+    "y": {"field": "brand", "type": "nominal", "title": "Brands"}
+  },
+  "layer": [
+    {
+      "mark": "rect",
+      "encoding": {
+        "color": {
+          "aggregate": "count",
+          "field": "price", 
+          "type": "quantitative", 
+          "title": "Number of sales",
+          "legend": {"titleFontSize": 9},
+          "scale": {"type": "threshold","domain":[10,50,100,200,400],
+          "range": ["#f1eef6", "#dadaeb","#bcbddc","#9e9ac8","#756bb1","#54278f"]}
+          }
+        }
+    },
+    {
+        "mark": {
+          "type": "text",
+          "size": 8.5
+          }
+        ,
+      "encoding": {
+        "text": {"aggregate": "count","field": "price", "type": "quantitative"},
+        "color": {
+        "condition": {"test": "datum['price'] > 0", "value": "white"},
+          "value": "black"
+        }
+      }
+    }
+  ],
+  "config": {
+    "font": "Franklin Gothic Book",
+    "axis": {"grid": true, "tickBand": "extent"}
+  }
+}
