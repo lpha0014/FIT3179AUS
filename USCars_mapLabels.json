@@ -98,7 +98,7 @@
           "type": "text",
           "dy": -10,
           "dx": -7,
-          "size": 8
+          "size": 10
         },
         "encoding": {
           "text": {"field": "state", "type": "nominal"}
