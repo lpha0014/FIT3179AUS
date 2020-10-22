@@ -1,0 +1,39 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "height": 200,
+  "data": { "url": "https://lpha0014.github.io/FIT3179USCars/USA_cars_datasets.csv"},
+  "title": "Average Miles of car status",
+    "transform": [{"filter":
+  {"field": "brand", 
+  "oneOf": ["bmw", "nissan", "chevrolet", "dodge", "ford"]}}
+  ],
+  "width": {"step": 30},
+  "mark": "bar",
+  "encoding": {
+      "column": {
+      "field": "brand", "type": "nominal", "spacing": 10,
+      "title": "Top 5 Car Brands"},
+    "y": {
+      "aggregate": "mean", "field": "mileage",
+      "title": "Average Miles traveled by vehicle",
+      "axis": {"grid": false}
+    },
+    "x": {
+      "field": "title_status",
+      "type": "nominal",
+      "axis": {"title": ""}
+    },
+    "color": {
+      "field": "title_status",
+      "scale": {"range": ["#9ecae1", "#fdbb84"]},
+      "legend": null
+    },
+      "tooltip": [
+      {"aggregate": "mean", "field": "mileage","format": ".1f","type": "quantitative", "title": "Miles"}]
+  },
+  "config": {
+    "font": "Franklin Gothic Book",
+    "view": {"stroke": "transparent"},
+    "axis": {"domainWidth": 1}
+  }
+}
