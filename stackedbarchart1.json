@@ -1,0 +1,56 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "title": "Colour distribution amongst the top 5 brands",
+  "width":350,
+  "height": 300,
+  "data": {"url": "https://lpha0014.github.io/FIT3179USCars/USA_cars_datasets.csv"},
+  "transform": 
+  [{"filter":
+  {"field": "brand", "oneOf": ["chevrolet","dodge","ford","nissan","bmw"]}},{"filter":{"field": "color", "oneOf": ["white","black","gray","red","blue"]}}
+  ],
+  "layer":[
+    {  "mark": "bar",
+  "encoding": {
+    "order": {"aggregate": "sum","field": "price"},
+    "tooltip": [
+      {"field": "color", "type": "nominal", "title": "Colour"},{"aggregate": "sum","field": "price", "type": "quantitative", "title": "Price (sum)", "format" : "$"}],
+    "y": {"aggregate": "sum", "field": "price","axis": {"grid": false}},
+    "x": {"field": "brand", "sort":"-y"},
+    "color": {"field": "color","type": "nominal", "title": "Popular Colours",
+    "scale": {"type": "threshold","domain": ["white","black","gray","red","blue"],"range":["#f7f7f7","black","gray","#f03b20","#2b8cbe"]}}
+}}
+,
+    {
+      "mark": {
+      "type":"text",
+      "dx": 100,
+      "dy": -30,
+      "font": "Franklin Gothic Book",
+      "fontSize": 10,
+      "color": "dimgray"
+    },
+      "encoding": {
+          "text": {"value": "White cars have the highest count followed by black"}
+      }
+    },
+        {
+      "mark": {
+      "type":"text",
+      "dx": 120,
+      "dy": 70,
+      "font": "Franklin Gothic Book",
+      "fontSize": 10,
+      "color": "dimgray"
+    },
+      "encoding": {
+          "text": {"value": "BMW's haven't been sold in red"}
+      }
+    }
+  ]
+,
+  "config": {
+    "font": "Franklin Gothic Book",
+    "view": {"stroke": "transparent"},
+    "axis": {"domainWidth": 1}
+  }
+}
