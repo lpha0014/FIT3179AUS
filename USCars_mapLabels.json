@@ -98,7 +98,7 @@
           "type": "text",
           "dy": -10,
           "dx": -7,
-          "size": 9.5
+          "size": 8
         },
         "encoding": {
           "text": {"field": "state", "type": "nominal"}
@@ -107,6 +107,7 @@
     }
   ],
   "config": {
+    "font": "Franklin Gothic Book",
   "view": {
      "stroke": "transparent"
   }
