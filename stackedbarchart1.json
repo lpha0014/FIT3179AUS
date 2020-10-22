@@ -3,6 +3,7 @@
   "title": "Colour distribution amongst the top 5 brands",
   "width":350,
   "height": 300,
+  "background": "lightgray",
   "data": {"url": "https://lpha0014.github.io/FIT3179USCars/USA_cars_datasets.csv"},
   "transform": 
   [{"filter":
@@ -17,7 +18,7 @@
     "y": {"aggregate": "sum", "field": "price","axis": {"grid": false}},
     "x": {"field": "brand", "sort":"-y"},
     "color": {"field": "color","type": "nominal", "title": "Popular Colours",
-    "scale": {"type": "threshold","domain": ["white","black","gray","red","blue"],"range":["#f7f7f7","black","gray","#f03b20","#2b8cbe"]}}
+    "scale": {"type": "threshold","domain": ["white","black","gray","red","blue"],"range":["#f7f7f7","black","gray","#f03b20","#2b8cbe"]},"legend": null}
 }}
 ,
     {
