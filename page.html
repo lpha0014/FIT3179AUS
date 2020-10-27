@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Online Car Auctions in North America</title>
+  <!-- Import Vega & Vega-Lite (does not have to be from CDN) -->
+  <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@4"></script>
+  <!-- Import vega-embed -->
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+  <!-- Import pure.css -->
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css" integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Google font -->
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700;900&display=swap" rel="stylesheet">
+
+  <!-- custom style -->
+  <style>
+    *{
+      font-family: 'Franklin Gothic Book', sans-serif;
+    }
+    h1{
+      font-weight: 700;
+    }
+     body{
+       background-color: lightgrey;
+     }
+     .page{
+       width: 950px;    
+       background-color: white;   
+       margin: auto;
+       padding: 50px;
+       padding-top: 35px;
+    }
+    .vis-container{
+      width: 100%;
+    }
+    .description h2, h1{
+      margin-top:0px;
+    }
+    .description-right {
+      padding-left: 20px;
+    }
+    .description-left{
+      padding-right: 20px;
+    }
+    .pure-g{
+      margin-bottom: 10px;
+    }
+    .small-font{
+        font-size: 12px;
+    }
+    .header {
+  padding: 20px;
+  text-align: center;
+  background: #3f4cc5;
+  color: white;
+}
+.fill2 {
+  padding: 20px;
+  text-align: center;
+  background: #4e5bd6;
+  color: white;
+}
+  </style>
+</head>
+<body>
+
+ <div class="page">
+
+   <!-- pure grid group -->
+    <div class="header">
+      <div class="pure-u-1-1">
+        <h1 style="color:white;text-align:center;font-size:290%;">Online Car Auctions in North America</h1>
+        </div>
+      </div><p>Analysing and exploring the prices of cars for online auctions in the US, the occurences of certain characteristics overtime and a closer look into the top colours and car brands. </p>
+    
+  <!-- end pure grid group -->
+
+    <!-- pure grid group -->
+    <div class="fill2">
+        <div class="pure-u-1-1">
+          <div>
+            <h2>Analysing Prices</h2>
+            <div class="pure-u-1-1">
+          <div id="vis1" class="vis-container"></div>
+        </div>
+        <p>The map of North America above displays the mean car prices sold in each state from 1973 to 2020.
+          The state Kentucky has the highest average auction price of $44969.44, 
+          a surprising statistic for a relatively small state.
+          In contrast, Montana has the lowest average car auction price of $2825.00 and Wyoming
+          has sold one car for free ($0) in an online auction. Hence, the state with the highest prices cars on average is Kentucky.
+        </p>
+          </div>
+        </div>
+    </div>
+    <!-- end pure grid group -->
+
+    <!-- pure grid group -->
+    <br>
+    <div class="fill2">
+        <div class="pure-u-1-1">            
+          <div id="vis2"  class="vis-container"></div>
+        </div>
+        <div class="pure-u-1-1">
+          <div class="description description-left">
+            <p>The boxplot above displays the distribution of car prices by their respective brands from the year 2000 to 2020.
+              The brands with the largest price range amongst the cars are audi, bmw and lexus (not including outliers). 
+              The maximum price of a car was a Mercedes Benz with an auctioned price of $84,900.
+              The brands with the highest medians are a Lexus and BMW, and they should be considered if you are looking for an expensive car.
+              Heartlands would be an ideal brand for those looking for a cheaper car, with a small and low cost range.
+            </p>
+          </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <!-- end pure grid group -->
+
+    <!-- pure grid group -->
+    <div class="pure-g">
+      <div class="pure-u-1-2">
+        <div class="description description-right">
+          <h2>Occurences over time</h2>
+          <p>The heat map on the right shows the number of car sales from the year 2000.</p>
+
+          <p>It can instantly be seen that Ford is the car brand that makes the most sales since 
+            2000 and sells the most cars in 2019 with a count of 476 cars.</p> 
+
+            <p>It can also be seen that many of the cars sell around 1 car a year such as Acura and Toyota.</p>
+            
+            <p>The drop-down selection can be used to see the count of the top 5 colours over time.
+              The maximum count of black cars is 97 in 2019 from Ford.
+            </p>
+
+            <p>Chevrolet also sells relatively consistently over the years across all 5 colours</p>
+
+            <p>Ford sells the highest number of cars across all 5 colours in 2019, and is indeed the most popular car to be sold online.</p>
+          </p>
+        </div>
+      </div>
+      <div class="pure-u-1-2">
+        <div class="description description-left">
+        <div id="vis3"  class="vis-container"></div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <br>
+    <!-- end pure grid group -->
+  
+    <!-- pure grid group -->
+      <div class="pure-g">        
+        <div class="pure-u-1-2">
+          <div id="vis4"  class="vis-container"></div>
+        </div>
+        <div class="pure-u-1-2">
+          <div class="description description-left">
+            
+            <p font-style="italic"><em>Click on the legend circles to see the points more clearly.</em></p>
+            <p>The scatterplot on the left is used to show the relationship of miles travelled by a car with its price over time.</p>
+            <p>As time goes by, there are more cars being sold online in the US, with majority of the cars being clean vehciles.
+            <p>The relationship observed is the further a car has travelled (in miles), the lower its price. </p>
+            <p style="color:orange">Cars with a status of 'salvage insurance' typically sell for a lower price than clean vehicles. </p>
+            <p style="color:orange">The maximum price for a salvage vehicle was $20,000 in 2012. </p>
+            <p>Notable outliers have been annotated in the scatterplot</p>
+            </p>
+            <p></p>
+          </div>
+        </div>
+
+      </div>
+        <!-- end pure grid group -->
+
+            <!-- pure grid group -->
+      <div class="pure-g">        
+        <br>
+        <br>
+        
+        <div class="pure-u-1-2"> 
+          <h2>Looking closer into popular attributes</h2>
+          <div id="vis5"  class="vis-container"></div>
+        </div>
+        <div class="pure-u-1-2">
+          <h2 style="color:white">.</h2>
+          <div id="vis6"  class="vis-container"></div>
+        </div>
+        <div class="pure-u-1-2">
+          <div class="description description-left">
+            <p>White, black, red and blue were some of the most popular colours amongst the top 5 cars.
+              Ford achieves the highest number of sales by far compared to the other brands.
+              White is the most popular colour in Ford, Dodge and Chervrolet, but it is the 3rd most popular in Nissan and no white BMW's have been sold.
+              Nissan makes the most sales out of black and gray coloured cars.
+              Thus, white ford's are not very unique.
+            </p>
+          </div>
+        </div>
+        <div class="pure-u-1-2">
+          <div class="description description-left">
+            <p>The status of the top 5 car brands are visualised above, and vehciles
+              with the status of 'salvage insurance' travelled for longer dustances than clean vehciles.
+              This indicates that cars that have traveled for a shorter distance are highly likely to be cleaner and in better condition.
+              Hence, it is recommended to purchase a clean vehcile when applicable to have a more stable and newer car.
+            </p>
+          </div>
+        </div>
+      </div>
+        <!-- end pure grid group -->
+        
+    <div class="header">
+      <div class="pure-u-1-1 small-font">
+        <p>This visualisation is created by <a href="https://github.com/lpha0014/" target="_blank">Lillian Pham</a>. The datasource is from <a href="https://www.kaggle.com/doaaalsenani/usa-cers-dataset" target="_blank">Kaggle</href>.</p>
+      </div>
+    </div>
+  
+
+  </div> <!-- end page -->
+   
+<script type="text/javascript">
+  var specVis1= "https://lpha0014.github.io/FIT3179USCars/USCars_mapLabels.json";
+  var specVis2= "https://lpha0014.github.io/FIT3179USCars/boxplot1.json";
+  var specVis3= "https://lpha0014.github.io/FIT3179USCars/heatmapInteractSelective.json";
+  var specVis4= "https://lpha0014.github.io/FIT3179USCars/scatterplot1.json";
+  var specVis5= "https://lpha0014.github.io/FIT3179USCars/stackedbarchart1.json";
+  var specVis6= "https://lpha0014.github.io/FIT3179USCars/grouped_barchart.json";
+
+  vegaEmbed('#vis1', specVis1, {"actions": false}).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+  }).catch(console.error);
+  
+   vegaEmbed('#vis2', specVis2, {"actions": false}).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+  }).catch(console.error);
+
+  vegaEmbed('#vis3', specVis3, {"actions": false}).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+  }).catch(console.error);
+
+  vegaEmbed('#vis4', specVis4, {"actions": false}).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+  }).catch(console.error);
+
+  vegaEmbed('#vis5', specVis5, {"actions": false}).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+  }).catch(console.error);
+
+  vegaEmbed('#vis6', specVis6, {"actions": false}).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+  }).catch(console.error);
+</script>
+</body>
+</html>
