@@ -21,12 +21,13 @@
     "x": {
       "field": "title_status",
       "type": "nominal",
-      "axis": {"title": ""}
+      "axis": {"labels": false, "labelColor": null},
+      "title": " "
     },
     "color": {
       "field": "title_status",
       "scale": {"range": ["#9ecae1", "#fdbb84"]},
-      "legend": null
+      "legend": {"orient": "bottom", "title": "Status"}
     },
       "tooltip": [
       {"aggregate": "mean", "field": "mileage","format": ".1f","type": "quantitative", "title": "Miles"}]
@@ -34,6 +35,6 @@
   "config": {
     "font": "Franklin Gothic Book",
     "view": {"stroke": "transparent"},
-    "axis": {"domainWidth": 1}
+    "axis": {"domainWidth": 1, "tickColor": "white"}
   }
 }
