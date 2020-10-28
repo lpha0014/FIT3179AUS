@@ -1,0 +1,49 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+        "title": "Mean car brand prices overtime",
+    "width":350,
+    "height": 300,
+    "data": {"url": "https://lpha0014.github.io/FIT3179USCars/USA_cars_datasets.csv"},
+    
+    "transform": [
+      {"filter": {"field": "year","gte": 2000}},{"filter": {"not":{"field": "brand","oneOf":["jaguar","harley-davidson","peterbilt","ram","toyota","maserati", "nissan","lincoln"]}}}],
+      "encoding": {      
+        "x": {"type": "ordinal", "field": "year", "title": "Year","axis": {"grid": false}},
+        "y": {"aggregate":"mean", "field": "price", "type": "quantitative", "axis": {"grid": false}},
+    "opacity": {"condition": {"selection": "hover", "value": 1}, "value": 0.2}
+    },
+    "layer": [
+      {
+      "selection": {
+        "hover": {
+          "type": "single",
+          "on": "mouseover",
+          "empty": "all",
+          "fields": ["brand"],
+          "init": {"brand": "bmw"}
+        }
+      },
+      "mark": {"type": "line", "strokeWidth": 8, "stroke": "transparent"}
+    },
+      {
+    "mark": {
+      "type": "line",
+      "point": true
+    },
+    "encoding": {
+      "color": {"field": "brand", "type": "nominal","scale": {"scheme": "tableau20"},"legend": null},
+      "tooltip":[{"field":"brand","type":"nominal", "title": "Brand"},{"aggregate":"mean","field":"price","type":"quantitative", "format":".2f", "title": "Mean Price ($)"}]
+    }}, 
+    {
+        "mark": {"type": "text", "align": "left", "dx": 10, "fontSize": 9},
+        "encoding": {"text": {"field":"brand", "type": "nominal"},  "color": {"value": "black"},"opacity": {
+            "condition":{
+              "test": "datum['year'] > 2019",
+              "value": 1
+          },
+          "value": 0
+        }}}
+      ],
+      "config": {"view": {"stroke": null},"font": "Franklin Gothic Book"}
+  }
+  
