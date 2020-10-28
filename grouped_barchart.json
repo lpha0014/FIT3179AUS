@@ -2,10 +2,16 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
   "height": 200,
   "data": { "url": "https://lpha0014.github.io/FIT3179USCars/USA_cars_datasets.csv"},
+    "params": [
+    {
+      "name": "Select_State",
+      "bind": {"input": "select", "options": [null, "kentucky","ontario","new mexico", "washington","illinois"], "labels": ["Show all"], "name": "Select State"}
+    }
+  ],
   "title": "Average Miles of car status",
     "transform": [{"filter":
   {"field": "brand", 
-  "oneOf": ["bmw", "nissan", "chevrolet", "dodge", "ford"]}}
+  "oneOf": ["bmw", "nissan", "chevrolet", "dodge", "ford"]}},{"filter": "Select_State == null || datum.state==Select_State"}
   ],
   "width": {"step": 30},
   "mark": "bar",
