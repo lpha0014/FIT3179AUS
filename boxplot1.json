@@ -1,12 +1,12 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
   "title": "Car Price Distribution",
-  "width":810,
+  "width":350,
   "height": 250,
   "data": {"url": "https://lpha0014.github.io/FIT3179USCars/USA_cars_datasets.csv"},
-  "transform": [{"filter": {"not":{"field": "brand","oneOf":["jaguar","harley-davidson","peterbilt","ram","toyota","maserati"]}}}],
+  "transform": [{"filter": {"not":{"field": "brand","oneOf":["jaguar","harley-davidson","peterbilt","ram","toyota","maserati","nissan","lincoln"]}}}, {"filter": {"field": "price", "type": "quantitative", "lte": 850000}}],
   "layer": [
-    {"mark": "boxplot",
+    {"mark": {"type":"boxplot","extent": "min-max"},
     "encoding": {
       "x": {"field": "brand", "type": "nominal", "title": "Brands"},
       "y": {"field": "price", "type": "quantitative", "title": "Prices($)","axis": {"grid": false}},
@@ -16,27 +16,27 @@
     {
       "mark": {
       "type":"text",
-      "dx": 30,
-      "dy": -80,
+      "dx": -50,
+      "dy": -90,
     "font": "Franklin Gothic Book",
       "fontSize": 11,
-      "color": "darkcyan"
+      "color": "#f03b20"
     },
       "encoding": {
-          "text": {"value": "Ford has the most outliers out of all brands"}
+          "text": {"value": "Heartland has the smallest price range"}
       }
     },
     {
       "mark": {
       "type":"text",
-      "dx": 300,
-      "dy": -40,
+      "dx": 80,
+      "dy": -60,
     "font": "Franklin Gothic Book",
       "fontSize": 11,
-      "color": "palevioletred"
+      "color": "orange"
     },
       "encoding": {
-          "text": {"value": "Lexus has the biggest price interquartile range"}
+          "text": {"value": "BMW has the biggest price IQR"}
       }
     }
   ]
