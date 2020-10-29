@@ -1,6 +1,6 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-        "title": "Mean car brand prices overtime",
+      "title": {"text":"Mean car brand prices overtime", "align": "right"},
     "width":350,
     "height": 300,
     "data": {"url": "https://lpha0014.github.io/FIT3179USCars/USA_cars_datasets.csv"},
