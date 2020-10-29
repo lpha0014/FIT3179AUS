@@ -73,7 +73,7 @@
       "transform": [{"filter": {
         "not": {
           "field": "state",
-        "oneOf": ["North Dakota","South Dakota", "Maine", "Alaska", "Hawaii", "Rhode Island","Iowa"]
+        "oneOf": ["North Dakota","South Dakota", "Maine", "Alaska", "Hawaii", "Rhode Island","Iowa", "Massachusetts"]
               }
             }       
           }
