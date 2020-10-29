@@ -3,7 +3,7 @@
   "title": "Mean car prices of each state",
   "width": 810,
   "height": 500,
-  "background": "#43a2ca",
+  "background": "#6baed6",
   "data": {
     "url": "https://raw.githubusercontent.com/lpha0014/FIT3179USCars/main/ne_50m_admin_1_states_provinces2.topojson",
     "format": {"type": "topojson", "feature": "ne_50m_admin_1_states_provinces"}
