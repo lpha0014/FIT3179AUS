@@ -2,7 +2,9 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
     "width":350,
   "height": 300,
-  "title": "Miles Travelled compared to Price",
+    "title": 
+  {"text":"Miles Travelled compared to Price", 
+   "align": "right"},
   "data": {"url": "https://lpha0014.github.io/FIT3179USCars/USA_cars_datasets.csv"},
   "params": [
     {
@@ -19,7 +21,7 @@
   "transform": [{"filter": "datum.year==Select_Years"}],
   "encoding": {
     "y": {"field": "price", "type": "quantitative", "scale": {"domain":[0,90000]}, "title": "Price"},
-    "x": {"field": "mileage", "type": "quantitative", "scale": {"domain":[0,1200000]}, "title": "Miles Travelled"}
+    "x": {"field": "mileage", "type": "quantitative", "scale": {"domain":[0,1200000]}, "title": "Mileage"}
     },
     "layer": [
       {
