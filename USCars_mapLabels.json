@@ -1,6 +1,8 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-  "title": "Mean car prices of each state",
+   "title": 
+  {"text":"Mean car prices of each state", 
+   "anchor": "start"},
   "width": 810,
   "height": 500,
   "background": "#6baed6",
