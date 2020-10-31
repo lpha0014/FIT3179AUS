@@ -22,7 +22,14 @@
       font-weight: 700;
     }
      body{
-       background-color: lightgrey;
+       background-image: url('https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/empty-paved-road-at-sunset-in-the-chilean-patagonia-royalty-free-image-1591901619.jpg');
+       height: 100%;
+       width: 100%;
+        /* Center and scale the image nicely */
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+
      }
      .page{
        width: 950px;    
@@ -50,12 +57,15 @@
         font-size: 12px;
     }
     .header {
-  padding: 10px;
+  padding: 5px;
   text-align: center;
-  font-family: 'Franklin Gothic Demi', sans-serif;
+  font-family: 'Franklin Gothic Demi';
   color: white;
   font-weight: bold;
-  font-weight: 900;
+  height: 60px;
+  width: 100%;
+  background-color: lightgrey; 
+  text-align: center;
 }
 .fill2 {
   padding: 20px;
@@ -68,6 +78,11 @@
   margin-right: auto;
   width:  100%;
 }
+hr.dotted {
+  border-top: 3px dotted #bbb;
+}
+
+
   </style>
 </head>
 <body>
@@ -79,8 +94,14 @@
       <div class="pure-u-1-1">
         <h1 style="color:black;text-align:center;font-size:300%;">Online Car Auctions in North America</h1>
         </div>
-      </div style="text-align:center;"><p>This page will be analysing and exploring the prices of cars for online auctions in the US, the occurences of certain characteristics overtime and take a closer look into the top colours and car brands. </p>
-      <img src="https://motortech-dovercourt.co.uk/wp-content/uploads/2017/12/carlogos.gif" class="center">
+
+      </div style="text-align:center;"><p>This page will be analysing and exploring the prices of cars for online auctions in the US, the occurrences of certain characteristics overtime and take a closer look into the top colours and car brands. </p>
+          <body>
+            <marquee behavior="scroll" direction="left">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQb_6-yiODOvuk6K7gKJVurE20FSBc_-fXRkA&usqp=CAU" />
+              
+            </marquee>
+          </body>
   <!-- end pure grid group -->
 
     <!-- pure grid group -->
@@ -88,6 +109,9 @@
         <div class="pure-u-1-1">
           <div>
             <h1>Analysing Prices</h1>
+            <p>The following visualisations can be a good guide to better understand the mean prices of cars in each 
+              state and the price distributions of certain brands.
+            </p>
             <div class="pure-u-1-1">
           <div id="vis1" class="vis-container"></div>
         </div>
@@ -115,19 +139,21 @@
             <p>The brands with the largest price range amongst the cars are Ford, Mercedes-benz and Dodge.</p>
             <p>The brands with the highest medians are a Lexus and BMW, and they should be considered if you are looking for an expensive car.</p>
             <p>Heartlands would be an ideal brand for those looking for a cheaper car, with a small and low cost range.
+            <img src="https://s3-ap-southeast-2.amazonaws.com/imotor-cms/images_cms/148221_hsv-chevroletcamarorunout-nov19-as.jpg" class="center" height="110">
             </p>
-            <br>
           </div>
         </div>
     </div>
     <br>
     <br>
     <!-- end pure grid group -->
-
+    <hr class="dotted">
     <div class="fill2">
       <div class="pure-u-1-1">
-          <h1><b>Occurences over time</b></h1>
-      </div> </div>
+          <h1><b>Occurrences over time</b></h1>
+            <p>The following visualisations will display the trends and occurrences over time with regards to mean prices and mileage.</p>
+          </div> </div>
+
     <!-- pure grid group -->
     <div class="pure-g">
       <div class="pure-u-1-2">
@@ -160,22 +186,22 @@
             
             <p font-style="italic"><em>Click on the legend circles to see the points more clearly.</em></p>
             <p>The scatterplot on the left is used to show the relationship of miles travelled by a car with its price over time.</p>
-            <p>As time goes by, there are more cars being sold online in the US, with majority of the cars being <span style="color: lightskyblue;"> clean vehicles </span>.
+            <p>As time goes by, there are more cars being sold online in the US, with majority of the cars being <span style="color: lightskyblue;"> clean vehicles. </span>
             <p>The relationship observed is the further a car has travelled (in miles), the lower its price. </p>
-            <p>Cars with a status of <span style="color: orange;"> salvage insurance </span> typically sell for a lower price than <span style="color: lightskyblue;"> clean vehicles </span>. </p>
+            <p>Cars with a status of <span style="color: orange;"> salvage insurance </span> typically sell for a lower price than <span style="color: lightskyblue;"> clean vehicles. </span></p>
             <p>The maximum price for a salvage vehicle was $20,000 in 2012. </p>
             <p>Notable outliers have been annotated in the scatterplot</p>
             </p>
             <p></p>
           </div>
         </div>
-
+<br>
       </div>
         <!-- end pure grid group -->
         <br>
         <br>
         <br>
-        <br>
+        <hr class="dotted">
             <!-- pure grid group -->
       <div class="pure-g">        
           <div class="pure-u-1-1">
@@ -193,7 +219,7 @@
             <p>Black, <span style="color: silver;"> silver, </span><span style="color: gray;"> gray, </span><span style="color: red;"> red, </span> and <span style="color: blue;"> blue, </span> are some of the most popular car colours.
               The stacked bar chart above displays the proportions of these colours for the top 5 brands.
               Black is the most popular colour in Ford, Chervrolet and Nissan but it is the 2nd most popular in Dodge and BMW.
-              Majority of BMW cars are sold in <span style="color: blue;"> blue </span>, unlike the other colours with less popularity in <span style="color: blue;"> blue </span>. <span style="color: red;"> Red </span> is the least popular out of the 4, and there have been no BMW's sold in <span style="color: red;"> red </span>.
+              Majority of BMW cars are sold in <span style="color: blue;"> blue </span>, unlike the other colours with less popularity in <span style="color: blue;"> blue </span>. <span style="color: red;"> Red </span> is the least popular out of the 4, and there have been no BMW's sold in <span style="color: red;"> red. </span>
               Even though <span style="color: silver;"> silver </span> and <span style="color: gray;"> gray </span> are similar colours, <span style="color: gray;"> gray </span> is more popular. 
               This chart suggests that darker colours tend to be popular with cars such as black and <span style="color: gray;"> gray </span>.
             </p>
@@ -207,7 +233,7 @@
               It is recommended to purchase a clean vehicle if you wish to have a newer car.
               The top 5 states with the highest sales can be selected to view the status' of these brands.
               Kentucky and Illinois have sold cars with both status', but not the other three states. Hence, cars from Ontario, New Mexico and Washington
-              are likey to be <span style="color: lightskyblue;"> clean vehicles </span>.
+              are likely to be <span style="color: lightskyblue;"> clean vehicles </span>.
             </p>
           </div>
         </div>
@@ -215,13 +241,12 @@
         <!-- end pure grid group -->
     
         <br>
+    <img src="https://motortech-dovercourt.co.uk/wp-content/uploads/2017/12/carlogos.gif" class="center">
     <div class="pure-g">
       <div class="pure-u-1-1 small-font">
         <p>This visualisation is created by <a href="https://github.com/lpha0014/" target="_blank">Lillian Pham</a>. The datasource is from <a href="https://www.kaggle.com/doaaalsenani/usa-cers-dataset" target="_blank">Kaggle</href>.</p>
       </div>
     </div>
-  
-
   </div> <!-- end page -->
    
 <script type="text/javascript">
