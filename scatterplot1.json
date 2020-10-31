@@ -4,7 +4,7 @@
   "height": 300,
     "title": 
   {"text":"Miles Travelled compared to Price", 
-   "align": "right"},
+   "anchor": "start"},
   "data": {"url": "https://lpha0014.github.io/FIT3179USCars/USA_cars_datasets.csv"},
   "params": [
     {
